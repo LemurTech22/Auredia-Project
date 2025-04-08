@@ -17,10 +17,7 @@ class User(db.Model):
 #define the route of the database
 user_db = BluePrint('user',__name__)
 
-@app.route("/")
-def welcome_page():
-    return render_template('index.html')
-"""""
+
 @app.route('Create User',methods =['POST'])
 def create_user(): 
     global id_number
@@ -64,4 +61,3 @@ def delete_user(user_id):
     if user_to_delete:
         return (jsonify({"Message": "User Deleted"}))
     return jsonify({"error": "User not Found"}), 404
-"""
