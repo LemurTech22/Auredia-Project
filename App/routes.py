@@ -1,10 +1,5 @@
-from flask import jsonify, request
-from flask import render_template
-from flask_sqlalchemy import SQLAlchemy
-import SQLAlchemy
-from App.imports import app
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///auredia.db'
+from flask import jsonify, request, Blueprint
+from database import db, User
 
 
 #define the database here
@@ -17,7 +12,7 @@ class User(db.Model):
 #define the route of the database
 user_db = BluePrint('user',__name__)
 
-
+#creates a user and inserts into database
 @app.route('Create User',methods =['POST'])
 def create_user(): 
     global id_number
@@ -30,7 +25,7 @@ def create_user():
 
     #insert into database here
     return  jsonify(user)
-
+#get a user information
 @app.route('Get_User', methods=['GET'])
 def get_user(user_id):
     user = 0#get database info here db.get(user_id)
@@ -38,7 +33,7 @@ def get_user(user_id):
     if user:
         return jsonify(user)
     return jsonify({"Message": "User does not exist"}),404
-
+#update the user information
 @app.route('Update_User\<id>',method=['PUT'])
 def update_user(user_id):
     user = 2#database call to get user by id db.get(user_id)
@@ -52,7 +47,7 @@ def update_user(user_id):
 
     #update user to database by UPDATE SET WHERE id=user_ID
     return jsonify(user)
-
+#delete user 
 @app.route('Delete_User', methods =['DELETE'])
 def delete_user(user_id):
     #get from data base the user 
