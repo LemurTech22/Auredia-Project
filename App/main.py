@@ -7,9 +7,9 @@ db.init_app(app)
 
 app.register_blueprint(routes)
 
+@app.before_request
 def create_tables():
     db.create_all()
 
 if __name__ == '__main__':
-    #main()
     app.run(debug=True)

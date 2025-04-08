@@ -1,58 +1,57 @@
 from flask import jsonify, request, Blueprint
 from database import db, User
 
+routes = Blueprint('routes', __name__)
 
 #define the database here
-class User(db.Model):
-    id = db.column(db.Integer,primary_key=True)
-    username = db.column(db.String(100),nullable=False,unique=True)
-    fname = db.column(db.String(50), nullable=False)
-    Lname = db.column(db.String(50), nullable=False)
-    email = db.column(db.String(100),nullable=False)
-#define the route of the database
-user_db = BluePrint('user',__name__)
 
 #creates a user and inserts into database
-@app.route('Create User',methods =['POST'])
+@routes.route('/create_user',methods =['POST'])
 def create_user(): 
-    global id_number
     data = request.get_json()
-    user = {
-        "id": id_number,
-        "user_name": data.get('username'),
-        'email': data.get('email')
-    }
+    user = User(
+        username=data['username'],
+        fname=data['fname'],
+        lname=data['lname'],
+        email=data['email']
+        )
 
-    #insert into database here
-    return  jsonify(user)
+    #insert into database changes here
+    db.session.add(user)
+    db.session.commit()
+    #return a new user in a json with a status of creating a new user.
+    return  jsonify(user.to_dict()), 201
+    
 #get a user information
-@app.route('Get_User', methods=['GET'])
+@routes.route('/get_user/<int:user_id>', methods=['GET'])
 def get_user(user_id):
-    user = 0#get database info here db.get(user_id)
-    #get user where id == user_id
-    if user:
-        return jsonify(user)
-    return jsonify({"Message": "User does not exist"}),404
+    user = User.query.get(user_id)#get database info here db.get(user_id)
+
+    if not user:
+        return jsonify({"Message": "User does not exist"}), 404
+    return jsonify(user.to_dict())
+
 #update the user information
-@app.route('Update_User\<id>',method=['PUT'])
+@routes.route('/update_user/<int:user_id>',methods=['PUT'])
 def update_user(user_id):
-    user = 2#database call to get user by id db.get(user_id)
+    user = User.query.get(user_id)#database call to get user by id db.get(user_id)
     if not user:
         return jsonify({"Error": "User not Found"}),404
     
     info = request.get_json()
-    user['username'] = info.get("username",user['username'])
-    user['email'] = info.get('email',user['email'])
-    
+    user.username = info.get("username",user.username)
+    user.email = info.get('email',user.email)
 
-    #update user to database by UPDATE SET WHERE id=user_ID
-    return jsonify(user)
+    db.session.commit()
+    return jsonify(user.to_dict())
 #delete user 
-@app.route('Delete_User', methods =['DELETE'])
+@routes.route('/delete_user/<int:user_id>', methods =['DELETE'])
 def delete_user(user_id):
     #get from data base the user 
-    user_to_delete =  0#.pop(user_id,None)
+    user_to_delete =  User.query.get(user_id)
     #run sql command to delete user by user id
-    if user_to_delete:
-        return (jsonify({"Message": "User Deleted"}))
-    return jsonify({"error": "User not Found"}), 404
+    if not user_to_delete:
+        return (jsonify({"Message": "User not found"}))
+    db.session.delete(user_to_delete)
+    db.session.commit()
+    return jsonify({"Message": "User has been deleted."}), 404
