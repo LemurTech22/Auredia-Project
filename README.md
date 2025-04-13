@@ -35,7 +35,7 @@ In the interface I used Swagger UI/ Flasgger to interact with the API. The API k
 # Using the API
 4. There are 4 different functionalities Insert, Gather, Update, and Delete. If you click on one of the functionalities it should have a dropdown and top right should be Try it now on each dropdown. The Database should be empty so try inserting data. This accepts a Json format and Inserting Information is the template as followed:
 Template
-/``{
+``{
   "email": "string",
   "first_name": "string",
   "last_name": "string",
