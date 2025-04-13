@@ -11,7 +11,8 @@ Design a microservice-based API for user management using Docker and PostgreSQL.
 * Create a Docker Compose configuration 
 * Implement a robust user management service 
 * Mandatory Components
-#Technologies used:
+
+## Technologies used:
 * Flask
 * Python
 * PostgreSQL
@@ -27,7 +28,7 @@ Design a microservice-based API for user management using Docker and PostgreSQL.
 3. Build and start Docker containers: ``docker-compose up --build``
 
 # Accessing the Interface
-In the interface I used Swagger UI/ Flasgger to interact with the API. The API key is necessary to run the each CRUD functionality.\
+In the interface I used Swagger UI/ Flasgger to interact with the API. The API key is necessary to run the each CRUD functionality.
 # Steps
 1. After Docker is finished Running, Open any browser and insert this address: ``localhost:5000/apidocs/``
 2. You should be greated with the interface with the CRUD functionalities of the API.
