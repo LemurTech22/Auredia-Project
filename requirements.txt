@@ -5,3 +5,7 @@ SQLAlchemy
 Flask-SQLAlchemy
 
 psycopg2
+
+paver
+
+flasgger
