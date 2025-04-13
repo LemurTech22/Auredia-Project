@@ -33,16 +33,16 @@ In the interface I used Swagger UI/ Flasgger to interact with the API. The API k
 2. You should be greated with the interface with the CRUD functionalities of the API.
 3. Insert the API Key. This allows access to using the API functionalities. Go to the Authorize Green button and insert the following API Key: ``bfcdtexzrofwtsdvfxmyrginsidaduxtnadlwjeynlsjgchussxrtzqdqhdfektptklucqtlxhatuctqcdbcyktzlarkkayndmktlkjaffxgvomsqaupvlxwnhehppat``. (FOR TESTING PURPOSES ONLY. LEAVING API KEYS IN REPOSITORIES IS A BIG NO NO.)
 # Using the API
-4. There are 4 different functionalities Insert, Gather, Update, and Delete. If you click on one of the functionalities it should have a dropdown and top right should be Try it now on each dropdown. The Database should be empty so try inserting data. This accepts a Json format and Inserting Information is the template as followed:
-Template
+4. There are 4 different functionalities Insert, Gather, Update, and Delete. If you click on one of the functionalities it should have a dropdown and top right should be Try it now on each dropdown. The Database should be empty so try inserting data. \nThis accepts a Json format and Inserting Information is the template as followed:
+Template\n
 ``{
   "email": "string",
   "first_name": "string",
   "last_name": "string",
   "user_name": "string"
 }``
-You must fill out all the information inorder to insert data b/c it will throw errors.
-If all is well you should get a confirmation about the data you inserted and ID Number.
+\nYou must fill out all the information inorder to insert data b/c it will throw errors.
+\nIf all is well you should get a confirmation about the data you inserted and ID Number.
 6. Getting Information:
    Clicking to Getting information you need the ID number from Creating a user:
    ``{
