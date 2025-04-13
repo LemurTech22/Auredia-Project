@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.13'
 
 services:
   web:
@@ -10,6 +10,7 @@ services:
     environment:
       - FLASK_ENV=development
       - SQLALCHEMY_DATABASE_URI=postgresql://admin:password@db:5432/auredia
+      - API_KEY=bfcdtexzrofwtsdvfxmyrginsidaduxtnadlwjeynlsjgchussxrtzqdqhdfektptklucqtlxhatuctqcdbcyktzlarkkayndmktlkjaffxgvomsqaupvlxwnhehppat
     volumes:
       - .:/app
 
