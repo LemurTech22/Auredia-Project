@@ -21,6 +21,7 @@ Design a microservice-based API for user management using Docker and PostgreSQL.
 
 # Pre-requisites before running the Code
 * **Install Docker Desktop**
+* **Docker extension on VS code/Pycharm**
 
 # Running the code
 1. Clone the Repo into your favorite IDE
@@ -31,7 +32,7 @@ Design a microservice-based API for user management using Docker and PostgreSQL.
 In the interface I used Swagger UI/ Flasgger to interact with the API. The API key is necessary to run the each CRUD functionality.
 # Steps
 1. After Docker is finished Running, Open any browser and insert this address: ``localhost:5000/apidocs/``
-2. You should be greated with the interface with the CRUD functionalities of the API.
+2. You should be greeted with the interface with the CRUD functionalities of the API.
 3. Insert the API Key. This allows access to using the API functionalities. Go to the Authorize Green button and insert the following API Key: ``bfcdtexzrofwtsdvfxmyrginsidaduxtnadlwjeynlsjgchussxrtzqdqhdfektptklucqtlxhatuctqcdbcyktzlarkkayndmktlkjaffxgvomsqaupvlxwnhehppat``. (FOR TESTING PURPOSES ONLY. LEAVING API KEYS IN REPOSITORIES IS A BIG NO NO.)
 # Using the API
 4. There are 4 different functionalities Insert, Gather, Update, and Delete. If you click on one of the functionalities it should have a dropdown and top right should be Try it now on each dropdown. The Database should be empty so try inserting data. <br/>This accepts a Json format and Inserting Information is the template as followed:
