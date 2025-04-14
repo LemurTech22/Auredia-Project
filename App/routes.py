@@ -7,7 +7,7 @@ routes = Blueprint('routes', __name__)
 @routes.route('/create_user',methods =['POST'])
 @require_api_key
 def create_user(): 
-
+    #Used for the Interface only
     """
     Create a new user.
     ---
@@ -136,6 +136,8 @@ def get_user(user_id):
 @routes.route('/update_user/<int:user_id>',methods=['PUT'])
 @require_api_key
 def update_user(user_id):
+      #Used for the Interface only
+
     """
    Update an existing user's information.
     ---
@@ -208,7 +210,7 @@ def update_user(user_id):
 
 @routes.route('/delete_user/<int:user_id>', methods =['DELETE'])
 def delete_user(user_id):
-    
+    #Used for the Interface only
     """
    Deleting User Information.
     ---
@@ -220,7 +222,7 @@ def delete_user(user_id):
       - name: user_id
         in: path
         type: integer
-        requied: True
+        required: True
         description: Deleting User information.
         schema:
           type: object
