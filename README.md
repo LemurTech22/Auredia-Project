@@ -83,3 +83,9 @@ Should be easy, just need the ID number to delete users. After deleting you shou
   user_id: textbox
 }
 ```
+# TroubleShooting
+I've notice there is a issue in MAC with the API not running due to port conflict. So in the application it uses Port 5000 but on mac port 5000 is reserved to Airdrop receiver. You wont encounter this issue on windows. 
+There are two things I've found that works 
+1. Stop Airdrop receiver process
+2. Change ports in the application
+   Change the port number to 8080 on main.py, Expose port to 8080, and docker-compose.yml to web-> port: 8080:8080
